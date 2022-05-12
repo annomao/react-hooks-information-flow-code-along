@@ -1,21 +1,16 @@
 import React from "react";
 import { getRandomColor } from "./randomColorGenerator.js";
 
-function Child({ onChangeColor,childrenColor, setChildrenColor }) {
+function Child({ onChangeColor,childrenColor}) {
 
-  function handleParentChange(){
-    const newRandomColor = getRandomColor();
-    onChangeColor(newRandomColor);
+  function handleClick() {
+    const newColor = getRandomColor();
+    onChangeColor(newColor);
   }
 
-  function handleSiblingChange(){
-    const newRandomColor = getRandomColor();
-    setChildrenColor(newRandomColor);
-  }
-  
   return <div className="child" 
   style={{ backgroundColor: childrenColor }} 
-  onClick={()=>{handleParentChange(); handleSiblingChange()}}
+  onClick={handleClick}
   />;
 }
 
